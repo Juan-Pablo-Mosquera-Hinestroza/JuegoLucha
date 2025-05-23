@@ -34,12 +34,12 @@ public abstract class PersonajeDecorator extends Personaje {
     }
 
     @Override
-    public Arma getArma() {
+    public Armas getArma() {
         return personaje.getArma();
     }
 
     @Override
-    public Armadura getArmadura() {
+    public Proteccion getArmadura() {
         return personaje.getArmadura();
     }
 
@@ -49,7 +49,7 @@ public abstract class PersonajeDecorator extends Personaje {
     }
 
     @Override
-    public java.util.List<Ataque> getAtaques() {
+    public java.util.List<Ataques> getAtaques() {
         return personaje.getAtaques();
     }
 }

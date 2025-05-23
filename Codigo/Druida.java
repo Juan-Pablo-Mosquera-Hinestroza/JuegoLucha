@@ -2,12 +2,12 @@ import java.util.Arrays;
 import java.util.Scanner;
 
 public class Druida extends Personaje {
-    public Druida(String nombre, Arma arma, Armadura armadura) {
+    public Druida(String nombre, Armas arma, Proteccion armadura) {
         super(nombre, arma, armadura, Arrays.asList(
-            new Ataque("Bola de Fuego", "Ataque de fuego mágico", 19, 0.25, 2.0),
-            new Ataque("Rayo Helado", "Ataque de hielo", 16, 0.35, 1.7),
-            new Ataque("Explosión Arcana", "Explosión de energía arcana", 23, 0.15, 2.5),
-            new Ataque("Descarga Eléctrica", "Ataque eléctrico", 18, 0.30, 2.0)
+            new magicos("Bola de Fuego", "Ataque de fuego mágico", 19, 0.25, 2.0),
+            new magicos("Rayo Helado", "Ataque de hielo", 16, 0.35, 1.7),
+            new magicos("Explosión Arcana", "Explosión de energía arcana", 23, 0.15, 2.5),
+            new magicos("Descarga Eléctrica", "Ataque eléctrico", 18, 0.30, 2.0)
         ));
     }
 

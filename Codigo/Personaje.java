@@ -6,13 +6,13 @@ abstract class Personaje {
     protected int puntosDeVida;
     protected final int MAX_DANO = 30;
     protected final int MIN_DANO = 10;
-    protected Arma arma;
-    protected Armadura armadura;
-    protected List<Ataque> ataques;
+    protected Armas arma;
+    protected Proteccion armadura;
+    protected List<Ataques> ataques;
     protected int vidaMaxima;
 
     // Constructor para inicializar los datos del personaje
-    public Personaje(String nombre, Arma arma, Armadura armadura, List<Ataque> ataques) {
+    public Personaje(String nombre, Armas arma, Proteccion armadura, List<Ataques> ataques) {
         this.nombre = nombre;
         this.arma = arma;
         this.armadura = armadura;
@@ -48,15 +48,15 @@ abstract class Personaje {
         return this.puntosDeVida;
     }
 
-    public Arma getArma() {
+    public Armas getArma() {
         return arma;
     }
 
-    public Armadura getArmadura() {
+    public Proteccion getArmadura() {
         return armadura;
     }
 
-    public List<Ataque> getAtaques() {
+    public List<Ataques> getAtaques() {
         return ataques;
     }
 

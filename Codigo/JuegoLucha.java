@@ -1,6 +1,6 @@
 import java.util.Scanner;
 
-class JuegoLucha {
+public class JuegoLucha {
     private Personaje jugador1;
     private Personaje jugador2;
 
@@ -56,27 +56,27 @@ class JuegoLucha {
         Scanner scanner = new Scanner(System.in);
 
         // Opciones predeterminadas para Berserker
-        Arma[] armasBerserker = {
-                new Arma("Espada", "Espada de acero afilada", 8),
-                new Arma("Hacha", "Hacha de guerra pesada", 10),
-                new Arma("Lanza", "Lanza equilibrada", 7)
+        Armas[] armasBerserker = {
+                new fisicas("Espada", "Espada de acero afilada", 8),
+                new fisicas("Hacha", "Hacha de guerra pesada", 10),
+                new fisicas("Lanza", "Lanza equilibrada", 7)
         };
-        Armadura[] armadurasBerserker = {
-                new Armadura("Pesada", "Armadura de placas pesadas", 12),
-                new Armadura("Ligera", "Armadura ligera de cuero", 8),
-                new Armadura("Cota de malla", "Cota de malla reforzada", 10),
-                new Armadura("De metal", "Armadura de metal sólida", 11)
+        Proteccion[] armadurasBerserker = {
+                new Peto("Pesada", "Armadura de placas pesadas", 12),
+                new Peto("Ligera", "Armadura ligera de cuero", 8),
+                new Peto("Cota de malla", "Cota de malla reforzada", 10),
+                new Peto("De metal", "Armadura de metal sólida", 11)
         };
         // Opciones predeterminadas para Druida
-        Arma[] armasDruida = {
-                new Arma("Bastón mágico", "Bastón con poder arcano", 11),
-                new Arma("Varita", "Varita de madera mágica", 9),
-                new Arma("Báculo de roble", "Báculo de roble antiguo", 10)
+        Armas[] armasDruida = {
+                new magicas("Bastón mágico", "Bastón con poder arcano", 11),
+                new magicas("Varita", "Varita de madera mágica", 9),
+                new magicas("Báculo de roble", "Báculo de roble antiguo", 10)
         };
-        Armadura[] armadurasDruida = {
-                new Armadura("Armadura de hojas", "Armadura hecha de hojas y corteza", 3),
-                new Armadura("Túnica de piel", "Túnica de piel de animal", 5),
-                new Armadura("Escudo arcano", "Escudo de energía mágica", 7)
+        Proteccion[] armadurasDruida = {
+                new Capa("Armadura de hojas", "Armadura hecha de hojas y corteza", 3),
+                new Capa("Túnica de piel", "Túnica de piel de animal", 5),
+                new Capa("Escudo arcano", "Escudo de energía mágica", 7)
         };
 
         // --- JUGADOR 1 ---
@@ -189,6 +189,7 @@ class JuegoLucha {
         JuegoLucha juego = new JuegoLucha(jugador1, jugador2);
         juego.iniciarPelea();
     }
+
 
     // Metodo para iniciar la pelea
     public void iniciarPelea() {

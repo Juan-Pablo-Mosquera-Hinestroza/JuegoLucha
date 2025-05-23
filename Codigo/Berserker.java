@@ -2,12 +2,12 @@ import java.util.Arrays;
 import java.util.Scanner;
 
 public class Berserker extends Personaje {
-    public Berserker(String nombre, Arma arma, Armadura armadura) {
+    public Berserker(String nombre, Armas arma, Proteccion armadura) {
         super(nombre, arma, armadura, Arrays.asList(
-            new Ataque("Golpe Poderoso", "Ataque físico fuerte", 15, 0.20, 2.0),
-            new Ataque("Estocada Rápida", "Ataque veloz y preciso", 10, 0.40, 1.5),
-            new Ataque("Hachazo Brutal", "Ataque devastador con hacha", 20, 0.10, 3.0),
-            new Ataque("Ataque Giratorio", "Ataque en área girando", 12, 0.30, 2.0)
+            new fisicos("Golpe Poderoso", "Ataque físico fuerte", 15, 0.20, 2.0),
+            new fisicos("Estocada Rápida", "Ataque veloz y preciso", 10, 0.40, 1.5),
+            new fisicos("Hachazo Brutal", "Ataque devastador con hacha", 20, 0.10, 3.0),
+            new fisicos("Ataque Giratorio", "Ataque en área girando", 12, 0.30, 2.0)
         ));
     }
 
