@@ -67,18 +67,18 @@ abstract class Personaje {
     // Builder genérico centralizado
     public static class Builder<T extends Personaje> {
         protected String nombre;
-        protected Arma arma;
-        protected Armadura armadura;
+        protected Armas arma;
+        protected Proteccion armadura;
 
         public Builder<T> conNombre(String nombre) {
             this.nombre = nombre;
             return this;
         }
-        public Builder<T> conArma(Arma arma) {
+        public Builder<T> conArma(Armas arma) {
             this.arma = arma;
             return this;
         }
-        public Builder<T> conArmadura(Armadura armadura) {
+        public Builder<T> conArmadura(Proteccion armadura) {
             this.armadura = armadura;
             return this;
         }

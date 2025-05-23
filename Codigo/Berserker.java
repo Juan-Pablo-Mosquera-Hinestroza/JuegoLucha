@@ -15,7 +15,7 @@ public class Berserker extends Personaje {
     public void atacar(Personaje oponente, Scanner scanner) {
         System.out.println("Elige el ataque para " + this.getNombre() + ":");
         for (int i = 0; i < this.getAtaques().size(); i++) {
-            Ataque atk = this.getAtaques().get(i);
+            Ataques atk = this.getAtaques().get(i);
             System.out.println((i + 1) + ". " + atk.getNombre() + " | Daño base: " + atk.getDanoBase() + " + Daño arma: " + this.getArma().getDano()
                     + " | Prob. crítico: " + (int) (atk.getProbCritico() * 100) + "% | Multiplicador crítico: x" + atk.getMultiplicadorCritico());
         }
@@ -31,7 +31,7 @@ public class Berserker extends Personaje {
                 System.out.println("Opción inválida. Intenta de nuevo.");
             }
         }
-        Ataque ataque = this.getAtaques().get(idx);
+        Ataques ataque = this.getAtaques().get(idx);
         int danoTotal = ataque.getDanoBase() + this.getArma().getDano();
         boolean critico = Math.random() < ataque.getProbCritico();
         if (critico) {

@@ -56,28 +56,10 @@ public class JuegoLucha {
         Scanner scanner = new Scanner(System.in);
 
         // Opciones predeterminadas para Berserker
-        Armas[] armasBerserker = {
-                new fisicas("Espada", "Espada de acero afilada", 8),
-                new fisicas("Hacha", "Hacha de guerra pesada", 10),
-                new fisicas("Lanza", "Lanza equilibrada", 7)
-        };
-        Proteccion[] armadurasBerserker = {
-                new Peto("Pesada", "Armadura de placas pesadas", 12),
-                new Peto("Ligera", "Armadura ligera de cuero", 8),
-                new Peto("Cota de malla", "Cota de malla reforzada", 10),
-                new Peto("De metal", "Armadura de metal sólida", 11)
-        };
-        // Opciones predeterminadas para Druida
-        Armas[] armasDruida = {
-                new magicas("Bastón mágico", "Bastón con poder arcano", 11),
-                new magicas("Varita", "Varita de madera mágica", 9),
-                new magicas("Báculo de roble", "Báculo de roble antiguo", 10)
-        };
-        Proteccion[] armadurasDruida = {
-                new Capa("Armadura de hojas", "Armadura hecha de hojas y corteza", 3),
-                new Capa("Túnica de piel", "Túnica de piel de animal", 5),
-                new Capa("Escudo arcano", "Escudo de energía mágica", 7)
-        };
+        fisicas.TipoFisica[] tiposArmasBerserker = fisicas.TipoFisica.values();
+        Peto.TipoPeto[] tiposProteccionesBerserker = Peto.TipoPeto.values();
+        magicas.TipoMagica[] tiposArmasDruida = magicas.TipoMagica.values();
+        Capa.TipoCapa[] tiposProteccionesDruida = Capa.TipoCapa.values();
 
         // --- JUGADOR 1 ---
         System.out.print("Introduce el nombre del jugador 1: ");
@@ -89,44 +71,44 @@ public class JuegoLucha {
         if (tipo1 == 2) {
             // Mostrar armas druida
             System.out.println("Opciones de arma para Druida:");
-            for (int i = 0; i < armasDruida.length; i++) {
-                System.out.println((i + 1) + ". " + armasDruida[i]);
+            for (int i = 0; i < tiposArmasDruida.length; i++) {
+                System.out.println((i + 1) + ". " + tiposArmasDruida[i]);
             }
             System.out.print("Elige el arma: ");
             int armaIdx = scanner.nextInt() - 1;
-            // Mostrar armaduras druida
-            System.out.println("Opciones de armadura para Druida:");
-            for (int i = 0; i < armadurasDruida.length; i++) {
-                System.out.println((i + 1) + ". " + armadurasDruida[i]);
+            // Mostrar protecciones druida
+            System.out.println("Opciones de protección para Druida:");
+            for (int i = 0; i < tiposProteccionesDruida.length; i++) {
+                System.out.println((i + 1) + ". " + tiposProteccionesDruida[i]);
             }
-            System.out.print("Elige la armadura: ");
-            int armaduraIdx = scanner.nextInt() - 1;
+            System.out.print("Elige la protección: ");
+            int proteccionIdx = scanner.nextInt() - 1;
             scanner.nextLine();
             jugador1 = new Druida.Builder()
                     .conNombre(nombre1)
-                    .conArma(armasDruida[armaIdx])
-                    .conArmadura(armadurasDruida[armaduraIdx])
+                    .conArma(new magicas(tiposArmasDruida[armaIdx].name(), tiposArmasDruida[armaIdx].name(), 10))
+                    .conArmadura(new Capa(tiposProteccionesDruida[proteccionIdx].name(), tiposProteccionesDruida[proteccionIdx].name(), 5))
                     .build();
         } else {
             // Mostrar armas berserker
             System.out.println("Opciones de arma para Berserker:");
-            for (int i = 0; i < armasBerserker.length; i++) {
-                System.out.println((i + 1) + ". " + armasBerserker[i]);
+            for (int i = 0; i < tiposArmasBerserker.length; i++) {
+                System.out.println((i + 1) + ". " + tiposArmasBerserker[i]);
             }
             System.out.print("Elige el arma: ");
             int armaIdx = scanner.nextInt() - 1;
-            // Mostrar armaduras berserker
-            System.out.println("Opciones de armadura para Berserker:");
-            for (int i = 0; i < armadurasBerserker.length; i++) {
-                System.out.println((i + 1) + ". " + armadurasBerserker[i]);
+            // Mostrar protecciones berserker
+            System.out.println("Opciones de protección para Berserker:");
+            for (int i = 0; i < tiposProteccionesBerserker.length; i++) {
+                System.out.println((i + 1) + ". " + tiposProteccionesBerserker[i]);
             }
-            System.out.print("Elige la armadura: ");
-            int armaduraIdx = scanner.nextInt() - 1;
+            System.out.print("Elige la protección: ");
+            int proteccionIdx = scanner.nextInt() - 1;
             scanner.nextLine();
             jugador1 = new Berserker.Builder()
                     .conNombre(nombre1)
-                    .conArma(armasBerserker[armaIdx])
-                    .conArmadura(armadurasBerserker[armaduraIdx])
+                    .conArma(new fisicas(tiposArmasBerserker[armaIdx].name(), tiposArmasBerserker[armaIdx].name(), 8))
+                    .conArmadura(new Peto(tiposProteccionesBerserker[proteccionIdx].name(), tiposProteccionesBerserker[proteccionIdx].name(), 8))
                     .build();
         }
         // Decorar con mochila
@@ -142,44 +124,44 @@ public class JuegoLucha {
         if (tipo2 == 2) {
             // Mostrar armas druida
             System.out.println("Opciones de arma para Druida:");
-            for (int i = 0; i < armasDruida.length; i++) {
-                System.out.println((i + 1) + ". " + armasDruida[i]);
+            for (int i = 0; i < tiposArmasDruida.length; i++) {
+                System.out.println((i + 1) + ". " + tiposArmasDruida[i]);
             }
             System.out.print("Elige el arma: ");
             int armaIdx = scanner.nextInt() - 1;
-            // Mostrar armaduras druida
-            System.out.println("Opciones de armadura para Druida:");
-            for (int i = 0; i < armadurasDruida.length; i++) {
-                System.out.println((i + 1) + ". " + armadurasDruida[i]);
+            // Mostrar protecciones druida
+            System.out.println("Opciones de protección para Druida:");
+            for (int i = 0; i < tiposProteccionesDruida.length; i++) {
+                System.out.println((i + 1) + ". " + tiposProteccionesDruida[i]);
             }
-            System.out.print("Elige la armadura: ");
-            int armaduraIdx = scanner.nextInt() - 1;
+            System.out.print("Elige la protección: ");
+            int proteccionIdx = scanner.nextInt() - 1;
             scanner.nextLine();
             jugador2 = new Druida.Builder()
                     .conNombre(nombre2)
-                    .conArma(armasDruida[armaIdx])
-                    .conArmadura(armadurasDruida[armaduraIdx])
+                    .conArma(new magicas(tiposArmasDruida[armaIdx].name(), tiposArmasDruida[armaIdx].name(), 10))
+                    .conArmadura(new Capa(tiposProteccionesDruida[proteccionIdx].name(), tiposProteccionesDruida[proteccionIdx].name(), 5))
                     .build();
         } else {
             // Mostrar armas berserker
             System.out.println("Opciones de arma para Berserker:");
-            for (int i = 0; i < armasBerserker.length; i++) {
-                System.out.println((i + 1) + ". " + armasBerserker[i]);
+            for (int i = 0; i < tiposArmasBerserker.length; i++) {
+                System.out.println((i + 1) + ". " + tiposArmasBerserker[i]);
             }
             System.out.print("Elige el arma: ");
             int armaIdx = scanner.nextInt() - 1;
-            // Mostrar armaduras berserker
-            System.out.println("Opciones de armadura para Berserker:");
-            for (int i = 0; i < armadurasBerserker.length; i++) {
-                System.out.println((i + 1) + ". " + armadurasBerserker[i]);
+            // Mostrar protecciones berserker
+            System.out.println("Opciones de protección para Berserker:");
+            for (int i = 0; i < tiposProteccionesBerserker.length; i++) {
+                System.out.println((i + 1) + ". " + tiposProteccionesBerserker[i]);
             }
-            System.out.print("Elige la armadura: ");
-            int armaduraIdx = scanner.nextInt() - 1;
+            System.out.print("Elige la protección: ");
+            int proteccionIdx = scanner.nextInt() - 1;
             scanner.nextLine();
             jugador2 = new Berserker.Builder()
                     .conNombre(nombre2)
-                    .conArma(armasBerserker[armaIdx])
-                    .conArmadura(armadurasBerserker[armaduraIdx])
+                    .conArma(new fisicas(tiposArmasBerserker[armaIdx].name(), tiposArmasBerserker[armaIdx].name(), 8))
+                    .conArmadura(new Peto(tiposProteccionesBerserker[proteccionIdx].name(), tiposProteccionesBerserker[proteccionIdx].name(), 8))
                     .build();
         }
         // Decorar con mochila
